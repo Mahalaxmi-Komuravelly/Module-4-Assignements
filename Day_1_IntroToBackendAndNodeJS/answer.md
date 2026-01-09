@@ -65,6 +65,8 @@ Examples of business logic are:
 - Cancellationof appointements
 - Limit of appointements
 
+![Frontend Business Logic Backend](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyt_hmNzVYbrhLNpvJMEZIlQU0a_vEydSSvg&s)
+
 # Client–Server Model
 
 A **Client–Server Model** is a networking architecture where the client(frontend) sends the request,server(backend) processes it and returns processed data to client
@@ -72,6 +74,7 @@ A **Client–Server Model** is a networking architecture where the client(fronte
 - The server processes the request, retrieves data from the database, applies business logic, and then sends the processed data back to the  client.
 - The client and server communicate with each other through the APIs.
 
+![Clent Server Model](https://madooei.github.io/cs421_sp20_homepage/assets/client-server-1.png)
 
 # Three-Tier Architecture
 
@@ -88,6 +91,8 @@ Three-Tier Architecture is widely used because of its
 **Security** – The separation of concerns enhances security by keeping the database protected from direct user access.
 **Maintainability** – Changes in one layer do not affect others, making updates and debugging easier.
 **Cloud & Microservices Compatibility** – Modern applications use cloud-based services and microservices, which align well with the 3-tier model.
+
+![Three-Tier Architecture](https://www.collidu.com/media/catalog/product/img/d/3/d374473e2c180b946d079add83932876b0b43ede1863195ff97d5a8e95e56cab/3-tier-architecture-slide2.png)
 
 ## JavaScript as a Backend Language
 
