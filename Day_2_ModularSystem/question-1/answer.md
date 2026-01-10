@@ -93,5 +93,6 @@ process.nextTick()
 - Call Stack
 - Micro Task Queue
 - Macro Task Queue
-Micro tasks always execute before macro tasks.
+
+Note: Micro tasks always execute before macro tasks.
 
