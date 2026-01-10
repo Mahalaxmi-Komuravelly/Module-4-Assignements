@@ -92,6 +92,6 @@ process.nextTick()
 ## Execution Priority
 - Call Stack
 - Micro Task Queue
-= Macro Task Queue
+- Macro Task Queue
 Micro tasks always execute before macro tasks.
 
