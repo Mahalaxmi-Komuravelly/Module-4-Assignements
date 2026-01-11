@@ -1,0 +1,20 @@
+import express from "express";
+
+const app = express();
+app.use(express.json());
+
+app.get("/home",(req,res)=>{
+    res.json({message:"This is home page"});
+});
+
+app.get("/contactus",(req,res)=>{
+    res.json({message:"Contact us at contact@contact.com"});
+})
+
+app.get("/about",(req,res)=>{
+    res.json({message:"Welcome to the About page!"});
+})
+
+app.listen(3000,()=>{
+    console.log("Server is running on http://localhost:3000");
+})
