@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Rahul",
+      "course": "Computer Science",
+      "year": 2
+    },
+    {
+      "id": 2,
+      "name": "Mahalaxmi",
+      "course": "ECE",
+      "year": 4
+    },
+    {
+      "id": 3,
+      "name": "Harika",
+      "course": "IT",
+      "year": 3
+    },
+    {
+      "id": 1768477172095,
+      "name": "Surya",
+      "course": "ECE",
+      "year": 4
+    },
+    {
+      "id": 1768497160098,
+      "name": "Ramya",
+      "course": "ECE",
+      "year": 3
+    }
+  ]
+}
