@@ -34,7 +34,7 @@ TodosRouter.get("/", (req, res) => {
 TodosRouter.post("/add",(req,res)=>{
     const data = readData();
     if(!data){
-        res.status(500).json({message:"Data Unavailable"})
+        return res.status(500).json({message:"Data Unavailable"})
     }
     const {title} = req.body || {};
     if(!title){
