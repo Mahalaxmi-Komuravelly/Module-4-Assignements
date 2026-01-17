@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": 1768586110857,
+      "name": "mahi",
+      "email": "mahi@gmail.com"
+    },
+    {
+      "id": 1768586126760,
+      "name": "lavanya",
+      "email": "lavanya@gmail.com"
+    },
+    {
+      "id": 1768586140432,
+      "name": "ramya",
+      "email": "ramya@gmail.com"
+    },
+    {
+      "id": 1768586162050,
+      "name": "Krishna",
+      "email": "krishna12@gmail.com"
+    },
+    {
+      "id": 1768586179505,
+      "name": "kajol",
+      "email": "kajol@gmail.com"
+    }
+  ],
+  "todos": [
+    {
+      "id": 1768637053454,
+      "title": "Learn postgresql",
+      "status": true
+    },
+    {
+      "id": 1768637070285,
+      "title": "Cooking",
+      "status": false
+    }
+  ]
+}
