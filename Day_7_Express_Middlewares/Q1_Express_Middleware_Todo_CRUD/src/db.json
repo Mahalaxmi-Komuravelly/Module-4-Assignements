@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1768653371450,
+      "title": "HTML Assignement",
+      "status": false
+    },
+    {
+      "id": 1768653378420,
+      "title": "CSS Assignement",
+      "status": false
+    },
+    {
+      "id": 1768724299667,
+      "title": "Buy groceries",
+      "status": false
+    }
+  ]
+}
