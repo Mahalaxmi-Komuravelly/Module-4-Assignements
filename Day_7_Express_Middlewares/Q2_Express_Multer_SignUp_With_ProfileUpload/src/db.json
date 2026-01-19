@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1768753127544,
+      "name": "mahi",
+      "email": "mahi@gmail.com",
+      "password": "mahi",
+      "profilePic": "https://res.cloudinary.com/dvxmrqwdn/image/upload/v1768753127/profilePictures/bxck5axpqw7d22ehhe1h.jpg"
+    },
+    {
+      "id": 1768754376935,
+      "name": "ramya",
+      "email": "ramya@gmail.com",
+      "password": "ramya123",
+      "profilePic": "https://res.cloudinary.com/dvxmrqwdn/image/upload/v1768754377/profilePictures/gax5dbjfektxlhddd7ln.png"
+    },
+    {
+      "id": 1768804329472,
+      "name": "kajol",
+      "email": "kajol@gmail.com",
+      "password": "kajol456",
+      "profilePic": "https://res.cloudinary.com/dvxmrqwdn/image/upload/v1768804328/profilePictures/wm0r6ai5yjpakykqpqpl.jpg"
+    },
+    {
+      "id": 1768840557117,
+      "name": "manu",
+      "email": "Manu@gmail.com",
+      "password": "manu12",
+      "profilePic": "https://res.cloudinary.com/dvxmrqwdn/image/upload/v1768840556/profilePictures/i2w0gkrkszxuwn72mayt.jpg"
+    }
+  ]
+}
