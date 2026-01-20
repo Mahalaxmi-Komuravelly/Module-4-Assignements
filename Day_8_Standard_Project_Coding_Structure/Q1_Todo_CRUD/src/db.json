@@ -1,0 +1,19 @@
+{
+    "todos": [
+        {
+            "id": 1768927707737,
+            "title": "Buy groceries",
+            "status": false
+        },
+        {
+            "id": 1768927724495,
+            "title": "HTML Assignement",
+            "status": true
+        },
+        {
+            "id": 1768927739598,
+            "title": "Cooking dinner",
+            "status": false
+        }
+    ]
+}
