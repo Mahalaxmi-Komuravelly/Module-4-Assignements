@@ -1,0 +1,108 @@
+create table students(id serial primary key,name text,email text,age integer,course text,created_at timestamp default current_timestamp);
+
+insert into students(name,email,age,course) values
+  ('Mahi','mahi@gmail.com',18,'Javascript'),
+  ('Hari','hari@gmail.com',28,'HTML'),
+  ('Suma','suma@gmail.com',31,'SQL'),
+  ('Sadhana','sadhana@gmail.com',30,'React'),
+  ('Sharath','sharath@gmail.com',20,'SQL'),
+  ('Sushma','sushma@gmail.com',23,'Data Science'),
+  ('Dheeraj','dheeraj@gmail.com',26,'DBMS'),
+  ('Dileep','dileep@gmail.com',19,'Data Science'),
+  ('Vamshi','vamshi@gmail.com',34,'Javascript');
+
+ => select * from students
+
+  | id | name    | email             | age | course       | created_at                 |
+| -- | ------- | ----------------- | --- | ------------ | -------------------------- |
+| 1  | Mahi    | mahi@gmail.com    | 18  | Javascript   | 2026-01-21 10:23:50.510944 |
+| 2  | Hari    | hari@gmail.com    | 28  | HTML         | 2026-01-21 10:23:50.510944 |
+| 3  | Suma    | suma@gmail.com    | 31  | SQL          | 2026-01-21 10:23:50.510944 |
+| 4  | Sadhana | sadhana@gmail.com | 30  | React        | 2026-01-21 10:23:50.510944 |
+| 5  | Sharath | sharath@gmail.com | 20  | SQL          | 2026-01-21 10:23:50.510944 |
+| 6  | Sushma  | sushma@gmail.com  | 23  | Data Science | 2026-01-21 10:23:50.510944 |
+| 7  | Dheeraj | dheeraj@gmail.com | 26  | DBMS         | 2026-01-21 10:23:50.510944 |
+| 8  | Dileep  | dileep@gmail.com  | 19  | Data Science | 2026-01-21 10:23:50.510944 |
+| 9  | Vamshi  | vamshi@gmail.com  | 34  | Javascript   | 2026-01-21 10:23:50.510944 |
+
+ => select * from students where age>20
+
+  | id | name    | email             | age | course       | created_at                 |
+| -- | ------- | ----------------- | --- | ------------ | -------------------------- |
+| 2  | Hari    | hari@gmail.com    | 28  | HTML         | 2026-01-21 10:23:50.510944 |
+| 3  | Suma    | suma@gmail.com    | 31  | SQL          | 2026-01-21 10:23:50.510944 |
+| 4  | Sadhana | sadhana@gmail.com | 30  | React        | 2026-01-21 10:23:50.510944 |
+| 6  | Sushma  | sushma@gmail.com  | 23  | Data Science | 2026-01-21 10:23:50.510944 |
+| 7  | Dheeraj | dheeraj@gmail.com | 26  | DBMS         | 2026-01-21 10:23:50.510944 |
+| 9  | Vamshi  | vamshi@gmail.com  | 34  | Javascript   | 2026-01-21 10:23:50.510944 |
+
+ => select name,email from students
+
+ | name    | email             |
+| ------- | ----------------- |
+| Mahi    | mahi@gmail.com    |
+| Hari    | hari@gmail.com    |
+| Suma    | suma@gmail.com    |
+| Sadhana | sadhana@gmail.com |
+| Sharath | sharath@gmail.com |
+| Sushma  | sushma@gmail.com  |
+| Dheeraj | dheeraj@gmail.com |
+| Dileep  | dileep@gmail.com  |
+| Vamshi  | vamshi@gmail.com  |
+
+  => select * from students where course = 'Data Science'
+  | id | name   | email            | age | course       | created_at                 |
+| -- | ------ | ---------------- | --- | ------------ | -------------------------- |
+| 6  | Sushma | sushma@gmail.com | 23  | Data Science | 2026-01-21 10:23:50.510944 |
+| 8  | Dileep | dileep@gmail.com | 19  | Data Science | 2026-01-21 10:23:50.510944 |
+
+ => update students set age=31 where id=4
+
+  | id | name    | email             | age | course       | created_at                 |
+| -- | ------- | ----------------- | --- | ------------ | -------------------------- |
+| 1  | Mahi    | mahi@gmail.com    | 18  | Javascript   | 2026-01-21 10:23:50.510944 |
+| 2  | Hari    | hari@gmail.com    | 28  | HTML         | 2026-01-21 10:23:50.510944 |
+| 3  | Suma    | suma@gmail.com    | 31  | SQL          | 2026-01-21 10:23:50.510944 |
+| 5  | Sharath | sharath@gmail.com | 20  | SQL          | 2026-01-21 10:23:50.510944 |
+| 6  | Sushma  | sushma@gmail.com  | 23  | Data Science | 2026-01-21 10:23:50.510944 |
+| 7  | Dheeraj | dheeraj@gmail.com | 26  | DBMS         | 2026-01-21 10:23:50.510944 |
+| 8  | Dileep  | dileep@gmail.com  | 19  | Data Science | 2026-01-21 10:23:50.510944 |
+| 9  | Vamshi  | vamshi@gmail.com  | 34  | Javascript   | 2026-01-21 10:23:50.510944 |
+| 4  | Sadhana | sadhana@gmail.com | 31  | React        | 2026-01-21 10:23:50.510944 |
+
+  => update students set course='PostgreSQL' where course='SQL'
+
+    | id | name    | email             | age | course       | created_at                 |
+| -- | ------- | ----------------- | --- | ------------ | -------------------------- |
+| 1  | Mahi    | mahi@gmail.com    | 18  | Javascript   | 2026-01-21 10:23:50.510944 |
+| 2  | Hari    | hari@gmail.com    | 28  | HTML         | 2026-01-21 10:23:50.510944 |
+| 6  | Sushma  | sushma@gmail.com  | 23  | Data Science | 2026-01-21 10:23:50.510944 |
+| 7  | Dheeraj | dheeraj@gmail.com | 26  | DBMS         | 2026-01-21 10:23:50.510944 |
+| 8  | Dileep  | dileep@gmail.com  | 19  | Data Science | 2026-01-21 10:23:50.510944 |
+| 9  | Vamshi  | vamshi@gmail.com  | 34  | Javascript   | 2026-01-21 10:23:50.510944 |
+| 4  | Sadhana | sadhana@gmail.com | 31  | React        | 2026-01-21 10:23:50.510944 |
+| 3  | Suma    | suma@gmail.com    | 31  | PostgreSQL   | 2026-01-21 10:23:50.510944 |
+| 5  | Sharath | sharath@gmail.com | 20  | PostgreSQL   | 2026-01-21 10:23:50.510944 |
+
+  => delete from students where id=9
+
+  | id | name    | email             | age | course       | created_at                 |
+| -- | ------- | ----------------- | --- | ------------ | -------------------------- |
+| 1  | Mahi    | mahi@gmail.com    | 18  | Javascript   | 2026-01-21 10:23:50.510944 |
+| 2  | Hari    | hari@gmail.com    | 28  | HTML         | 2026-01-21 10:23:50.510944 |
+| 6  | Sushma  | sushma@gmail.com  | 23  | Data Science | 2026-01-21 10:23:50.510944 |
+| 7  | Dheeraj | dheeraj@gmail.com | 26  | DBMS         | 2026-01-21 10:23:50.510944 |
+| 8  | Dileep  | dileep@gmail.com  | 19  | Data Science | 2026-01-21 10:23:50.510944 |
+| 4  | Sadhana | sadhana@gmail.com | 31  | React        | 2026-01-21 10:23:50.510944 |
+| 3  | Suma    | suma@gmail.com    | 31  | PostgreSQL   | 2026-01-21 10:23:50.510944 |
+| 5  | Sharath | sharath@gmail.com | 20  | PostgreSQL   | 2026-01-21 10:23:50.510944 |
+
+  => delete from students where age<22
+
+  | id | name    | email             | age | course       | created_at                 |
+| -- | ------- | ----------------- | --- | ------------ | -------------------------- |
+| 2  | Hari    | hari@gmail.com    | 28  | HTML         | 2026-01-21 10:23:50.510944 |
+| 6  | Sushma  | sushma@gmail.com  | 23  | Data Science | 2026-01-21 10:23:50.510944 |
+| 7  | Dheeraj | dheeraj@gmail.com | 26  | DBMS         | 2026-01-21 10:23:50.510944 |
+| 4  | Sadhana | sadhana@gmail.com | 31  | React        | 2026-01-21 10:23:50.510944 |
+| 3  | Suma    | suma@gmail.com    | 31  | PostgreSQL   | 2026-01-21 10:23:50.510944 |
