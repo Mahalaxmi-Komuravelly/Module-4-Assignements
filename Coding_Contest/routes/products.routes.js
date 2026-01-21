@@ -29,3 +29,5 @@ ProductRoutes.post("/",(req,res)=>{
     writeData(data)
     res.status(201).json({message:"Product created",products:data.products})
 })
+
+
