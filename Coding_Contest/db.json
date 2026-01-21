@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Mobile",
+      "price": 20000,
+      "stock": 11
+    },
+    {
+      "id": 2,
+      "name": "laptop",
+      "price": 40000,
+      "stock": 23
+    },
+    {
+      "id": 3,
+      "name": "ipad",
+      "price": 35000,
+      "stock": 8
+    },
+    {
+      "id": 4,
+      "name": "shoes",
+      "price": 2500,
+      "stock": 30
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "productId": 1,
+      "quantity": 2,
+      "totalAmount": 40000,
+      "status": "placed",
+      "createdAt": "2026-01-18"
+    },
+    {
+      "id": 2,
+      "productId": 1,
+      "quantity": 4,
+      "totalAmount": 80000,
+      "status": "placed",
+      "createdAt": "2026-01-17"
+    },
+    {
+      "id": 3,
+      "productId": 2,
+      "quantity": 3,
+      "totalAmount": 120000,
+      "status": "shipped",
+      "createdAt": "2026-01-17"
+    }
+  ]
+}
