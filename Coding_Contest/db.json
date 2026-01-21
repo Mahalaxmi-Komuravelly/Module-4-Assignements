@@ -22,7 +22,7 @@
       "id": 4,
       "name": "shoes",
       "price": 2500,
-      "stock": 28
+      "stock": 30
     }
   ],
   "orders": [
@@ -53,7 +53,7 @@
     {
       "id": 4,
       "productId": 4,
-      "totalAmount": null,
+      "totalAmount": 10000,
       "status": "placed",
       "createdAt": "2026-01-21"
     },
