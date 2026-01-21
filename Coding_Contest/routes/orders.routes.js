@@ -58,3 +58,31 @@ OrdersRoutes.post("/",(req,res)=>{
     writeData(data);
     res.status(201).json({message:"Order cretaed",order:newOrder})
 })
+
+OrdersRoutes.delete("/:orderId",(req,res)=>{
+    const data = readData();
+    if(!data){
+        return res.status(500).json({message:"Data Unavailable"})
+    }
+    const id = Number(req.params.orderId);
+    const order = data.orders.find((o)=>o.id  === id);
+    console.log(order)
+    if(!order){
+        return res.status(404).json({message:"Order Not found"})
+    }
+    if(order.status === "cancelled"){
+        return res.status(400).json({message:"Order is already cancelled"})
+    }
+    const currentDate = new Date().toISOString().slice(0,10);
+    console.log(order.createdAt)
+    if(order.createdAt === currentDate){
+        order.status ="cancelled"
+    }
+    const product = data.products.find((p)=>p.id === order.productId)
+    if(!product){
+        return res.status(404).json({ message: "Product not found" })
+    }
+    product.stock += order.quantity;
+    writeData(data);
+    res.status(200).json({message:"Order status changed to cancelled",order})
+})

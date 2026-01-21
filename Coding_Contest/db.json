@@ -10,7 +10,7 @@
       "id": 2,
       "name": "laptop",
       "price": 40000,
-      "stock": 23
+      "stock": 38
     },
     {
       "id": 3,
@@ -62,7 +62,7 @@
       "productId": 4,
       "quantity": 2,
       "totalAmount": 5000,
-      "status": "placed",
+      "status": "cancelled",
       "createdAt": "2026-01-21"
     }
   ]
