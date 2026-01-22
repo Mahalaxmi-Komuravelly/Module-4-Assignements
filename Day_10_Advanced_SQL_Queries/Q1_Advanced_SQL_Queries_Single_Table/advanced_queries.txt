@@ -1,0 +1,116 @@
+Aggregate Queries
+
+1.Count the total number of students
+
+select count(*) from students
+
+| count |
+| ----- |
+| 8     |
+
+2.Find the average age of students
+
+select avg(age) from students
+
+| avg                 |
+| ------------------- |
+| 25.6250000000000000 |
+
+3.Find the minimum and maximum age
+
+select min(age) as minage, max(age) as maxage from students
+
+| minage | maxage |
+| ------ | ------ |
+| 18     | 31     |
+
+4.Count how many students are enrolled in each course
+
+  select course,count(*) from students group by course
+
+| course       | count |
+| ------------ | ----- |
+| DBMS         | 1     |
+| React        | 2     |
+| PostgreSQL   | 1     |
+| Data Science | 1     |
+| HTML         | 3     |
+
+5.Count students whose age is greater than 20
+
+  select count(*) from students where age > 20
+
+| count |
+| ----- |
+| 7     |
+
+Grouping & Filtering:
+
+1. Display course-wise student count
+
+select course,count(*) from students group by course
+
+| course       | count |
+| ------------ | ----- |
+| DBMS         | 1     |
+| React        | 2     |
+| PostgreSQL   | 1     |
+| Data Science | 1     |
+| HTML         | 3     |
+
+2.Display only courses where student count is greater than 1
+
+  select course,count(*) from students group by course having count(*) > 1
+
+| course | count |
+| ------ | ----- |
+| React  | 2     |
+| HTML   | 3     |
+
+3. Display courses sorted by highest student count first
+
+select course,count(*) as student_count from students group by course order by student_count desc;
+
+| course       | student_count |
+| ------------ | ------------- |
+| HTML         | 3             |
+| React        | 2             |
+| DBMS         | 1             |
+| PostgreSQL   | 1             |
+| Data Science | 1             |
+
+Ordering & Limiting:
+
+1. Fetch the latest 3 students based on created_at
+
+ select * from students order by created_at desc limit 3 
+
+ | id | name    | email             | age | course | created_at                 |
+| -- | ------- | ----------------- | --- | ------ | -------------------------- |
+| 12 | Gopi    | gopi@gmail.com    | 26  | React  | 2026-01-22 07:13:42.543512 |
+| 11 | Harika  | harika@gmail.com  | 22  | HTML   | 2026-01-22 07:11:30.250521 |
+| 10 | Keerthi | keerthi@gmail.com | 18  | HTML   | 2026-01-22 07:10:10.331188 |
+
+2. Fetch the top 5 oldest students
+
+ select * from students order by age desc limit 5
+
+ | id | name    | email             | age | course     | created_at                 |
+| -- | ------- | ----------------- | --- | ---------- | -------------------------- |
+| 4  | Sadhana | sadhana@gmail.com | 31  | React      | 2026-01-21 10:23:50.510944 |
+| 3  | Suma    | suma@gmail.com    | 31  | PostgreSQL | 2026-01-21 10:23:50.510944 |
+| 2  | Hari    | hari@gmail.com    | 28  | HTML       | 2026-01-21 10:23:50.510944 |
+| 7  | Dheeraj | dheeraj@gmail.com | 26  | DBMS       | 2026-01-21 10:23:50.510944 |
+| 12 | Gopi    | gopi@gmail.com    | 26  | React      | 2026-01-22 07:13:42.543512 |
+
+3. Fetch students enrolled in a specific course, sorted by age (descending)
+
+ select * from students where course='HTML' order by age desc
+
+ | id | name    | email             | age | course | created_at                 |
+| -- | ------- | ----------------- | --- | ------ | -------------------------- |
+| 2  | Hari    | hari@gmail.com    | 28  | HTML   | 2026-01-21 10:23:50.510944 |
+| 11 | Harika  | harika@gmail.com  | 22  | HTML   | 2026-01-22 07:11:30.250521 |
+| 10 | Keerthi | keerthi@gmail.com | 18  | HTML   | 2026-01-22 07:10:10.331188 |
+
+
