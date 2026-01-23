@@ -141,7 +141,9 @@ select * from orders
 
 delete from users where id=2
 
-Error: Failed to run sql query: ERROR: 23503: update or delete on table "users" violates foreign key constraint "orders_user_id_fkey" on table "orders" DETAIL: Key (id)=(2) is still referenced from table "orders".
+-- Cascade delete is not used so that deleting a user
+-- with existing orders fails due to foreign key constraints.
+-- This protects order history and ensures data integrity.
 
 -- Why should orders not be stored inside the users table?
 
