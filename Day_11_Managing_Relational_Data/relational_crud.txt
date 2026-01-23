@@ -1,0 +1,150 @@
+create table users(id serial primary key,
+name text,
+email text,
+created_at timestamp default current_timestamp);
+
+create table orders(id serial primary key,
+user_id int references users(id),
+amount int,
+status text,
+created_at timestamp default current_timestamp)
+
+insert into users(name,email) values 
+('Mahi','mahi@gmail.com'),
+('Laxmi','laxmi@gmail.com'),
+('Janu','janu@gmail.com'),
+('Vani','vani@gmail.com'),
+('Kajol','kajol@gmail.com');
+
+1. Fetch all users
+
+select * from users;
+
+| id | name  | email           | created_at                 |
+| -- | ----- | --------------- | -------------------------- |
+| 1  | Mahi  | mahi@gmail.com  | 2026-01-22 17:20:23.921601 |
+| 2  | Laxmi | laxmi@gmail.com | 2026-01-22 17:20:23.921601 |
+| 3  | Janu  | janu@gmail.com  | 2026-01-22 17:20:23.921601 |
+| 4  | Vani  | vani@gmail.com  | 2026-01-22 17:20:23.921601 |
+| 5  | Kajol | kajol@gmail.com | 2026-01-22 17:20:23.921601 |
+
+2. Fetch all orders
+
+select * from orders
+
+| id | user_id | amount | status    | created_at                 |
+| -- | ------- | ------ | --------- | -------------------------- |
+| 1  | 1       | 25000  | pending   | 2026-01-23 07:33:48.985698 |
+| 2  | 1       | 10000  | delivered | 2026-01-23 07:33:48.985698 |
+| 3  | 2       | 14500  | cancelled | 2026-01-23 07:33:48.985698 |
+| 4  | 3       | 5000   | pending   | 2026-01-23 07:33:48.985698 |
+| 5  | 3       | 30000  | delivered | 2026-01-23 07:33:48.985698 |
+| 6  | 4       | 65000  | pending   | 2026-01-23 07:33:48.985698 |
+| 7  | 5       | 34000  | delivered | 2026-01-23 07:33:48.985698 |
+| 8  | 5       | 2000   | pending   | 2026-01-23 07:33:48.985698 |
+| 9  | 5       | 58000  | cancelled | 2026-01-23 07:33:48.985698 |
+| 10 | 5       | 6000   | delivered | 2026-01-23 07:33:48.985698 |
+
+3. Fetch all orders for a specific user
+
+select o.id,u.name,o.amount,o.status,o.created_at
+from users u
+join orders o on u.id = o.user_id
+where u.id = 3
+
+| id | name | amount | status    | created_at                 |
+| -- | ---- | ------ | --------- | -------------------------- |
+| 4  | Janu | 5000   | pending   | 2026-01-23 07:33:48.985698 |
+| 5  | Janu | 30000  | delivered | 2026-01-23 07:33:48.985698 |
+
+4.Fetch users who have more than one order
+
+select u.id,u.name, count(*) as NumofOrders 
+from users u 
+join orders o on u.id = o.user_id
+group by u.id,u.name having count(*) > 1 
+
+| id | name  | numoforders |
+| -- | ----- | ----------- |
+| 3  | Janu  | 2           |
+| 5  | Kajol | 4           |
+| 1  | Mahi  | 2           |
+
+5. Fetch total order amount per user
+
+select user_id,
+sum(amount) as totalOrderAmount
+from orders 
+group by user_id
+
+| user_id | totalorderamount |
+| ------- | ---------------- |
+| 3       | 35000            |
+| 5       | 100000           |
+| 4       | 65000            |
+| 2       | 14500            |
+| 1       | 35000            |
+
+Update Data
+
+1. Update the email of one user
+
+update users set email='mahi123@gmail.com' where id=1
+
+select id,email from users where id=1
+
+| id | email             |
+| -- | ----------------- |
+| 1  | mahi123@gmail.com |
+
+2. Update the status of all orders for a specific user
+
+update orders set status='delivered' where user_id=4
+select user_id,status from orders where user_id = 4
+
+| user_id | status    |
+| ------- | --------- |
+| 4       | delivered |
+
+3. Update order amount for a single order
+
+update orders set amount=6500 where id=8
+select * from orders where id=8
+
+| id | user_id | amount | status  | created_at                 |
+| -- | ------- | ------ | ------- | -------------------------- |
+| 8  | 5       | 6500   | pending | 2026-01-23 07:33:48.985698 |
+
+Delete Data:
+
+1. Delete one order using order id
+
+delete from orders where id=7
+
+2. Delete all orders of a specific user
+
+delete from orders where user_id=3
+
+select * from orders
+
+| id | user_id | amount | status    | created_at                 |
+| -- | ------- | ------ | --------- | -------------------------- |
+| 1  | 1       | 25000  | pending   | 2026-01-23 07:33:48.985698 |
+| 2  | 1       | 10000  | delivered | 2026-01-23 07:33:48.985698 |
+| 3  | 2       | 14500  | cancelled | 2026-01-23 07:33:48.985698 |
+| 9  | 5       | 58000  | cancelled | 2026-01-23 07:33:48.985698 |
+| 10 | 5       | 6000   | delivered | 2026-01-23 07:33:48.985698 |
+| 6  | 4       | 65000  | delivered | 2026-01-23 07:33:48.985698 |
+| 8  | 5       | 6500   | pending   | 2026-01-23 07:33:48.985698 |
+
+3. Attempt deleting a user with existing orders and observe the behavior
+
+delete from users where id=2
+
+Error: Failed to run sql query: ERROR: 23503: update or delete on table "users" violates foreign key constraint "orders_user_id_fkey" on table "orders" DETAIL: Key (id)=(2) is still referenced from table "orders".
+
+-- Why should orders not be stored inside the users table?
+
+# Orders should not be stored in the users table because
+# one user can have multiple orders, which violates normalization.
+# Keeping orders separate improves scalability and data integrity.
